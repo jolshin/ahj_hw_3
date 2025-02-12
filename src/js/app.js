@@ -4,7 +4,6 @@ import Goblin from "./Goblin";
 
 import GameState from "./GameState";
 
-Goblin.size = 4;
 Goblin.createField();
 
 setInterval(() => {

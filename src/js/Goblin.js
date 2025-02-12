@@ -24,8 +24,8 @@ export default class Goblin {
     Object.assign(div.style,this.addStyle());
 
     const imgEl = document.createElement('img');
-    imgEl.id = 'goblin'
-    imgEl.src = `${goblinImg}`
+    imgEl.id = 'goblin';
+    imgEl.src = `${goblinImg}`;
     
     for (let i=0; i < this.size**2; i++) {
       const innerDiv = document.createElement('div');
@@ -40,9 +40,16 @@ export default class Goblin {
   }
 
   static refreshGrid() {
+    let position = 0;
+
+    do {
+      position = this.random();
+    } while (this.position === position);
+
+    this.position = position;
+
     const imgEl = document.getElementById('goblin');
     imgEl.hidden = false;
-    document.querySelector('#wrapper').children[this.random()].appendChild(imgEl);
-    
+    document.querySelector('#wrapper').children[this.position].appendChild(imgEl);    
   }
 }
